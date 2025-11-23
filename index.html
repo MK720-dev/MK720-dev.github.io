@@ -1,42 +1,190 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Malek Kchaou</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #fafafa;
+            color: #222;
         }
 
-        .repo-list li {
-            margin-bottom: 8px;
+        header {
+            text-align: center;
+            padding: 50px 20px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
         }
+
+        img.profile {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #e5e5e5;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: 0.2s ease;
+        }
+
+            .project-card:hover {
+                transform: translateY(-4px);
+                border-color: #ccc;
+            }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f0f0f0;
+            margin-top: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
     </style>
 </head>
 
 <body>
-    <h1>Hello, I'm Malek 👋</h1>
 
-    <p>
-        I'm a Computer Science junior at the University of Kansas interested in optimization,
-        machine learning, biomedical imaging, and AR/AI physical therapy (ThAIrpy).
-    </p>
+    <!-- Header / Intro -->
+    <header>
+        <img src="yourphoto.jpg" alt="Profile Picture" class="profile" />
 
-    <h2>Featured Projects</h2>
-    <ul class="repo-list">
-        <li><a href="https://github.com/youruser/OptimizerArena">OptimizerArena</a> — 3D loss-landscape visualization tool.</li>
-        <li><a href="https://github.com/youruser/CardioSegNet">CardioSegNet</a> — U-Net for cardiac MRI segmentation.</li>
-        <li><a href="https://github.com/youruser/ThAirpy">ThAIrpy</a> — AR system for physical therapy guidance.</li>
-        <li><a href="https://github.com/youruser/Google-Stock-Prediction">Stock Prediction</a> — Linear regression model for price forecasting.</li>
-    </ul>
+        <h1>Malek Kchaou</h1>
+        <p>
+            Computer Science @ University of Kansas • Machine Learning • Optimization • Biomedical Modeling • AR/AI Physical Therapy
+        </p>
+    </header>
 
-    <h2>Contact</h2>
-    <p>
-        <a href="mailto:malek@example.com">malek@example.com</a> &nbsp;•&nbsp;
-        <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a>
-    </p>
+    <div class="container">
+
+        <!-- Personal Background -->
+        <section class="section">
+            <h2>About Me</h2>
+            <p>
+                I'm a Computer Science student originally from the Mediterranean, now studying at the University of Kansas.
+                My interests lie at the intersection of <strong>machine learning, optimization, biomedical imaging, and human–AI interaction</strong>.
+                A knee injury years ago sparked my curiosity in biomechanics — and since then I’ve been combining ML + modeling to build tools that help us better understand human movement and improve rehabilitation.
+            </p>
+        </section>
+
+        <!-- Recent Featured Projects -->
+        <section class="section">
+            <h2>Featured Projects (Recent)</h2>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/youruser/OptimizerArena">OptimizerArena</a></h3>
+                    <p>Interactive platform for visualizing loss landscapes and optimization trajectories using React + Plotly.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/youruser/CardioSegNet">CardioSegNet</a></h3>
+                    <p>U-Net based semantic segmentation for cardiac MRIs with a full training and evaluation pipeline.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/youruser/ThAirpy">ThAIrpy</a></h3>
+                    <p>AI-enhanced AR system for physical therapy guidance and real-time motion feedback.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Older Projects -->
+        <section class="section">
+            <h2>Older Projects</h2>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h3><a href="#">MRI Knee FEM Simulation</a></h3>
+                    <p>Finite Element Model of human knee joint to simulate meniscal tear biomechanics.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="https://github.com/youruser/Google-Stock-Prediction">Stock Prediction Model</a></h3>
+                    <p>Linear regression model predicting Google stock prices with custom ML pipeline.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3><a href="#">Obstacle-Avoiding Robot</a></h3>
+                    <p>Four-wheeled autonomous robot with ultrasonic sensing and simple navigation logic.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Research Agenda -->
+        <section class="section">
+            <h2>Research Agenda</h2>
+            <p>
+                My current and future research focuses on:
+            </p>
+            <ul>
+                <li>Developing optimization-aware tools for deeper insight into neural network training</li>
+                <li>Building AI/AR-based systems that improve physical therapy outcomes through real-time feedback</li>
+                <li>Modeling human joints and tissues using FEM integrated with ML-driven predictions</li>
+                <li>Machine learning for biomedical image analysis (MRI, segmentation, classification)</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <h2>Contact</h2>
+            <p>
+                📧 <a href="mailto:your.email@example.com">your.email@example.com</a><br />
+                🔗 <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a><br />
+                💻 <a href="https://github.com/yourgithub">GitHub</a>
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        © 2025 Malek Kchaou
+    </footer>
+
 </body>
 </html>
+
