@@ -378,40 +378,145 @@
             <div class="projects-grid">
 
                 <!-- ---- Undergraduate Researcher ---- -->
-                <div class="project-card">
-                    <h3>Undergraduate Researcher</h3>
+                <div class="scroll-card">
+                    <h3>Undergraduate Researcher — CardioSegNet (Phase 1)</h3>
                     <p><strong>I2S, University of Kansas</strong> — Jan 2023 to May 2025</p>
 
                     <div class="tags">
-                        <span class="tag">Dash & Plotly</span>
-                        <span class="tag">MRI Visualization</span>
                         <span class="tag">U-Net</span>
                         <span class="tag">Biomedical ML</span>
+                        <span class="tag">HDF5</span>
+                        <span class="tag">tf.data</span>
+                        <span class="tag">MRI Processing</span>
+                        <span class="tag">Dash/Plotly</span>
                     </div>
 
                     <ul class="card-list">
-                        <li>Developed an interactive MRI viewer app to analyze 3D MRI volumes.</li>
-                        <li>Performed semantic segmentation of heart MRIs using U-Net.</li>
-                        <li>Prepared datasets, preprocessing pipelines, and ROI overlays.</li>
-                        <li>Contributed to weekly research discussions and presentations.</li>
+
+                        <li>
+                            Built <strong>CardioSegNet</strong>, a lightweight U-Net–based system for automatic
+                            left-ventricle (LV) segmentation on cardiac MRI slices using the ACDC dataset.
+                        </li>
+
+                        <li>
+                            Designed and implemented the baseline <strong>2D U-Net architecture</strong>
+                            (encoder–decoder, skip connections, BCE + Dice loss) optimized for fast LV segmentation.
+                        </li>
+
+                        <li>
+                            Engineered a full <strong>MRI preprocessing pipeline</strong>: HDF5 parsing, slice extraction,
+                            intensity normalization, resizing, ROI filtering, and binary LV mask generation.
+                        </li>
+
+                        <li>
+                            Developed a high-performance <strong>tf.data</strong> input pipeline
+                            using parallel reads, caching, shuffling, and prefetching to accelerate training.
+                        </li>
+
+                        <li>
+                            Achieved strong baseline accuracy (~<strong>0.82 Dice</strong>) through systematic experimentation,
+                            hyperparameter tuning, and quantitative evaluation.
+                        </li>
+
+                        <li>
+                            Built a custom interactive <strong>MRI viewer</strong> using Dash & Plotly for visualizing
+                            model predictions, ground truth masks, and slice-by-slice overlays.
+                        </li>
+
+                        <li>
+                            Conducted qualitative error analysis (apex/base failures, contour smoothness issues)
+                            to guide Phase 2 architectural improvements.
+                        </li>
+
+                        <li>
+                            Documented architectural rationale, training decisions, and evaluation methodology
+                            to enable reproducibility and future AutoML experimentation.
+                        </li>
+
                     </ul>
                 </div>
 
+
                 <!-- ---- MATH 796 ---- -->
-                <div class="project-card">
-                    <h3>Advanced Coursework: MATH 796</h3>
-                    <p><strong>Optimization & Machine Learning</strong></p>
+                <div class="scroll-card">
+                    <h3>MATH 796 — Optimization & Machine Learning</h3>
+                    <p><strong>Graduate Course Project Work</strong></p>
 
                     <div class="tags">
                         <span class="tag">Optimization</span>
-                        <span class="tag">Robust ML</span>
-                        <span class="tag">Deep Learning Theory</span>
+                        <span class="tag">Loss Landscapes</span>
+                        <span class="tag">PCA</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">React/Vite</span>
+                        <span class="tag">AdamW</span>
+                        <span class="tag">U-Net</span>
                     </div>
 
                     <ul class="card-list">
-                        <li>Studying optimization dynamics, stability, and generalization.</li>
-                        <li>Developing <strong>CardioSegNet — Phase 2</strong> focusing on robustness.</li>
-                        <li>Analyzing gradient-based methods and adaptive learning rules.</li>
+
+                        <!-- OptimizerArena -->
+                        <li>
+                            Designed <strong>OptimizerArena</strong>, an interactive system for exploring high-dimensional
+                            neural-network loss landscapes using PCA-based dimensionality reduction and surrogate modeling.
+                        </li>
+
+                        <li>
+                            Implemented gradient-based and quasi-Newton algorithms (SGD, Mini-batch GD, Adam, RMSProp, BFGS)
+                            <strong>from first principles</strong> to analyze optimization dynamics.
+                        </li>
+
+                        <li>
+                            Integrated training-trajectory visualization and loss-surface reconstruction to study
+                            curvature, saddle points, and convergence behavior across tasks.
+                        </li>
+
+                        <li>
+                            Built a full-stack implementation: a <strong>FastAPI backend</strong> for training/PCA computations
+                            and a <strong>React + Vite frontend</strong> for real-time 3D visualization.
+                        </li>
+
+                        <li>
+                            Investigated optimizer sensitivity to initialization, curvature, and dataset structure
+                            using cross-validation and trajectory diagnostics.
+                        </li>
+
+                        <li>
+                            Developed an extensible experimentation framework supporting synthetic, regression,
+                            and classification datasets with user-defined architectures.
+                        </li>
+
+                        <!-- CardioSegNet Phase 2 -->
+                        <li>
+                            Extending CardioSegNet by developing a deeper and more robust U-Net architecture
+                            incorporating <strong>residual blocks</strong>, <strong>attention modules</strong>,
+                            and <strong>higher-resolution inputs</strong>.
+                        </li>
+
+                        <li>
+                            Studying advanced optimization strategies (AdamW, cosine decay, warm restarts)
+                            to reduce instability and improve convergence on medical image segmentation tasks.
+                        </li>
+
+                        <li>
+                            Experimenting with alternative activation functions (LeakyReLU, GELU, Swish/Mish)
+                            and regularization methods to improve robustness to noise and anatomical variability.
+                        </li>
+
+                        <li>
+                            Designing a flexible framework for multi-class segmentation (LV, RV, Myocardium)
+                            while maintaining LV-only training for controlled experimentation.
+                        </li>
+
+                        <li>
+                            Building infrastructure for a future <strong>AutoML agent</strong> that evaluates optimization
+                            dynamics and recommends architectural/hyperparameter improvements.
+                        </li>
+
+                        <li>
+                            Studying how depth, receptive field size, skip-connection structure, and
+                            attention mechanisms affect generalization, boundary sharpness, and apex/base consistency.
+                        </li>
+
                     </ul>
                 </div>
 
