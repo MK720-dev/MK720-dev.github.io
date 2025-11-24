@@ -179,6 +179,20 @@
             scroll-snap-align: start;
         }
 
+        .about-img-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            margin: 0;
+        }
+
     </style>
 </head>
 
@@ -213,7 +227,10 @@
                         and the <strong>Pioneer School of Ariana (LPA)</strong>, where I completed the mathematics section.
                     </p>
                 </div>
-                <img src="assets\1000004739.jpg" class="about-img" alt="Mediterranean landscape">
+                <div class="about-img-container">
+                    <img src="assets\1000004739.jpg" class="about-img" alt="Mediterranean landscape">
+                    <p class="img-caption">Personal photo taken on Byrsa Hill, ancient Carthage (present-day Tunis, Tunisia)</p>
+                </div>
             </div>
 
             <!-- Block 2: Image - Text -->
@@ -227,7 +244,11 @@
                         modeling. I'm also deeply interested in <strong>ancient history</strong>, particularly Carthage.
                     </p>
                 </div>
-                <img src="assets\1000004738.jpg" class="about-img" alt="Judo training">
+                <div class="about-img-container">
+                    <img src="assets\1000004738.jpg" class="about-img" alt="Judo training">
+                    <p class="img-caption">Group photo taken at the end of the Cédric Taymans International Judo Training Camp in Jodoigne, Belgium</p>
+                </div>
+ 
             </div>
 
             <!-- Block 3: Text - Image (or centered text) -->
@@ -268,19 +289,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- -------------------- RESEARCH AGENDA -------------------- -->
-        <section class="section">
-            <h2>Research Agenda</h2>
-            <ul>
-                <li>Optimization-aware tools for understanding neural network dynamics</li>
-                <li>AI and AR systems for physical therapy and movement analysis</li>
-                <li>Finite element modeling of biological tissues</li>
-                <li>Machine learning for biomedical imaging and diagnostics</li>
-            </ul>
-        </section>
-
 
         <!-- -------------------- RECENT PROJECTS -------------------- -->
         <section class="section">
