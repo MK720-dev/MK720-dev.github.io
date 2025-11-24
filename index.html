@@ -65,6 +65,32 @@
                 border-color: #ccc;
             }
 
+        /* Skill Chips */
+        .tags {
+            margin-bottom: 12px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eef3ff;
+            color: #365dd6;
+            padding: 4px 10px;
+            margin: 2px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* Bullet list inside cards */
+        .card-list {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+
+            .card-list li {
+                margin-bottom: 6px;
+            }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -80,6 +106,43 @@
             a:hover {
                 text-decoration: underline;
             }
+
+        /* About Me layout */
+        .about-block {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+            .about-block.reverse {
+                flex-direction: row-reverse;
+            }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 2px solid #ddd;
+        }
+
+        @media (max-width: 800px) {
+            .about-block,
+            .about-block.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-img {
+                width: 220px;
+                height: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -87,22 +150,21 @@
 
     <!-- Header / Intro -->
     <header>
-        <img src="assets\DSC_0443.jpg" alt="Profile Picture" class="profile" />
+        <img src="assets/DSC_0443.jpg" alt="Profile Picture" class="profile" />
 
         <h1>Malek Kchaou</h1>
         <p>
-            Computer Science Senior @ University of Kansas • Machine Learning • Optimization • Biomedical Modeling 
+            Computer Science Senior @ University of Kansas • Machine Learning • Optimization • Biomedical Modeling
         </p>
     </header>
 
     <div class="container">
 
-        <!-- Personal Background -->
-        <!-- Personal Section -->
+        <!-- -------------------- ABOUT ME -------------------- -->
         <section class="section">
             <h2>About Me</h2>
 
-            <!-- Block 1: Paragraph (left) + Image (right) -->
+            <!-- Block 1 -->
             <div class="about-block">
                 <div class="about-text">
                     <h3>Where I'm From</h3>
@@ -112,67 +174,56 @@
                         were always central in my life. After ranking among the top students nationally in both
                         the elementary and middle school national exams, I earned admission into two of the most
                         selective public institutions in the country: the <strong>Collège Pilote les Berges du Lac 2</strong>
-                        for middle school and the <strong>Pioneer School of Ariana (LPA)</strong> for high school,
-                        where I completed the mathematics section. These formative years instilled in me discipline,
-                        curiosity, and a strong foundation in analytical thinking—values that continue to guide my
-                        work in machine learning and research today.
+                        and the <strong>Pioneer School of Ariana (LPA)</strong>, where I completed the mathematics section.
                     </p>
                 </div>
-                <img src="mediterranean.jpg" alt="Mediterranean Heritage" class="about-img">
+                <img src="mediterranean.jpg" class="about-img">
             </div>
 
-            <!-- Block 2: Image (left) + Paragraph (right) -->
+            <!-- Block 2 -->
             <div class="about-block reverse">
-                <img src="judo.jpg" alt="Judo and Sports" class="about-img">
+                <img src="judo.jpg" class="about-img">
                 <div class="about-text">
                     <h3>Sports & Personal Interests</h3>
                     <p>
                         Athletics have always played a central role in my life, especially <strong>judo</strong>.
-                        Training taught me discipline, resilience, and the importance of technical precision —
+                        Training taught me discipline, resilience, and the importance of technical precision—
                         qualities that translate directly into my work in machine learning and computational
-                        modeling. I’m also deeply interested in <strong>ancient history</strong>, particularly
-                        Carthage and its scientific, military, and cultural legacy. This duality between
-                        physical discipline and historical curiosity shapes both how I learn and what I build.
+                        modeling. I’m also deeply interested in <strong>ancient history</strong>, particularly Carthage.
                     </p>
                 </div>
             </div>
 
-            <!-- Block 3: Paragraph (left) + Image (right) -->
+            <!-- Block 3 -->
             <div class="about-block">
                 <div class="about-text">
                     <h3>Research Interests & Aspirations</h3>
                     <p>
-                        My research interests lie in <strong>robust machine learning</strong> and
-                        <strong>optimization</strong>, with a focus on understanding how learning systems behave
-                        in real-world, high-stakes settings. I am particularly interested in bridging the
-                        persistent gap between <strong>ML theory</strong>—optimization dynamics, stability, generalization—
-                        and the <strong>practical deployment</strong> of models in domains where reliability matters,
-                        such as healthcare, rehabilitation, and scientific computing. Long-term, I aim to pursue
-                        a PhD and work toward developing learning systems that are not only accurate, but
-                        <strong>stable, interpretable, and robust under real-world conditions</strong>.
+                        I work at the intersection of <strong>robust machine learning</strong> and <strong>optimization</strong>,
+                        with a focus on understanding how learning systems behave in real-world, high-stakes settings.
+                        My goal is to help bridge the gap between <strong>ML theory</strong> and practical deployment in
+                        domains where reliability matters.
                     </p>
                 </div>
-                <img src="research.jpg" alt="Research and Aspirations" class="about-img">
+                <img src="research.jpg" class="about-img">
             </div>
 
         </section>
 
-        <!-- Research Agenda -->
+
+        <!-- -------------------- RESEARCH AGENDA -------------------- -->
         <section class="section">
             <h2>Research Agenda</h2>
-            <p>
-                My current and future research focuses on:
-            </p>
             <ul>
-                <li>Optimization-aware tools for understanding neural network training dynamics</li>
-                <li>AI and AR systems that enhance physical therapy through motion analysis and feedback</li>
-                <li>Finite element modeling of biological tissues, particularly the human knee joint</li>
-                <li>Machine learning and deep learning for biomedical imaging, segmentation, and diagnostics</li>
+                <li>Optimization-aware tools for understanding neural network dynamics</li>
+                <li>AI and AR systems for physical therapy and movement analysis</li>
+                <li>Finite element modeling of biological tissues</li>
+                <li>Machine learning for biomedical imaging and diagnostics</li>
             </ul>
         </section>
 
 
-        <!-- Recent Featured Projects -->
+        <!-- -------------------- RECENT PROJECTS -------------------- -->
         <section class="section">
             <h2>Recent Featured Projects</h2>
 
@@ -182,7 +233,6 @@
                     <h3><a href="https://github.com/MK720-dev/CardioSegNet">CardioSegNet</a></h3>
                     <p>
                         Deep-learning pipeline for cardiac MRI segmentation using a U-Net architecture.
-                        Includes preprocessing, training, evaluation metrics, and visualization tools.
                     </p>
                 </div>
 
@@ -190,22 +240,21 @@
                     <h3><a href="https://github.com/MK720-dev/OptimizerArena">OptimizerArena</a></h3>
                     <p>
                         Interactive platform for visualizing loss landscapes and optimization trajectories.
-                        Built with React + Plotly for 3D visualization and training-path analysis.
                     </p>
                 </div>
 
                 <div class="project-card">
                     <h3><a href="https://github.com/MK720-dev/The-ML-Lab">The ML Lab</a></h3>
                     <p>
-                        A collection of machine learning experiments, implementations, and exploratory
-                        projects covering optimization, neural networks, data analysis, and model evaluation.
+                        A collection of machine learning experiments and exploratory projects.
                     </p>
                 </div>
 
             </div>
         </section>
 
-        <!-- Collaborative Projects -->
+
+        <!-- -------------------- COLLABORATIVE PROJECTS -------------------- -->
         <section class="section">
             <h2>Collaborative Projects</h2>
 
@@ -215,23 +264,25 @@
                     <h3><a href="https://github.com/MK720-dev/ThAIrpy-">ThAIrpy</a></h3>
                     <p>
                         AI-enhanced augmented-reality physical therapy assistant.
-                        Designed to guide patients through exercises, provide real-time feedback,
-                        and support therapist workflows. Collaboration with exercise science researchers.
                     </p>
                 </div>
 
                 <div class="project-card">
-                    <h3><a href="https://github.com/wesmcdougal/EECS-581-Minesweeper-Project-2025">Minesweeper (EECS 581)</a></h3>
+                    <h3>
+                        <a href="https://github.com/wesmcdougal/EECS-581-Minesweeper-Project-2025">
+                            Minesweeper (EECS 581)
+                        </a>
+                    </h3>
                     <p>
-                        Team-designed Minesweeper game with AI playing mode for KU’s Software Engineering II Senior Design course (Initial Project).
-                        Focus on large-scale architecture, system design, and collaborative development workflows.
+                        Team-designed Minesweeper game with AI playing mode for KU’s Senior Design course.
                     </p>
                 </div>
 
             </div>
         </section>
 
-        <!-- Active Collaboration (Capstone) -->
+
+        <!-- -------------------- CURRENT PROJECTS -------------------- -->
         <section class="section">
             <h2>Current Project</h2>
 
@@ -239,9 +290,7 @@
                 <div class="project-card">
                     <h3><a href="https://github.com/Abdulaziz-Ali123/LocalNotes">LocalNotes (Capstone)</a></h3>
                     <p>
-                        A secure AI-enhanced local Markdown-based note-taking application with file-system integration.
-                        Supports folder browsing, file editing, creation, and deletion — designed as a
-                        polished desktop productivity tool for KU’s Software Engineering Senior Design course (Final project).
+                        Secure AI-enhanced local Markdown-based note-taking application.
                     </p>
                 </div>
             </div>
@@ -250,17 +299,14 @@
                 <div class="project-card">
                     <h3><a href="https://github.com/MK720-dev/CardioSegNet">CardioSegNet — Phase 2</a></h3>
                     <p>
-                        Ongoing extension of my CardioSegNet project as the final project for
-                        <strong>MATH 796: Machine Learning and Optimization</strong>. Phase 2 focuses on
-                        exploring advanced optimization methods, improved U-Net architectures,
-                        training stability, and evaluation under challenging conditions to better
-                        understand robustness in biomedical segmentation.
+                        Phase 2 extension for graduate course MATH 796, focusing on advanced optimization.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Older Projects -->
+
+        <!-- -------------------- OLDER PROJECTS -------------------- -->
         <section class="section">
             <h2>Older Projects</h2>
 
@@ -272,10 +318,7 @@
                             Social Security Number Generator
                         </a>
                     </h3>
-                    <p>
-                        Generates valid French social security numbers using official datasets.
-                        Includes database creation for synthetic demographic profiles.
-                    </p>
+                    <p>Generates valid French SSNs using official datasets.</p>
                 </div>
 
                 <div class="project-card">
@@ -284,80 +327,67 @@
                             Stock Price Prediction
                         </a>
                     </h3>
-                    <p>
-                        Regression-based model for predicting Google stock prices.
-                        Includes dataset preprocessing, custom regression code, and evaluation metrics.
-                    </p>
+                    <p>Regression model for forecasting Google stock prices.</p>
                 </div>
 
                 <div class="project-card">
                     <h3><a href="https://github.com/MK720-dev/CalcRPN">CalcRPN</a></h3>
-                    <p>
-                        Reverse Polish Notation calculator using C and Qt Creator for the GUI.
-                        Implements expression parsing, operator handling, and stack-based evaluation.
-                    </p>
+                    <p>Reverse Polish Notation calculator (C + Qt GUI).</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- Graduate Coursework & Research Section -->
+
+        <!-- -------------------- RESEARCH EXPERIENCE -------------------- -->
         <section class="section">
             <h2>Graduate Coursework & Research Experience</h2>
 
             <div class="projects-grid">
 
+                <!-- ---- Undergraduate Researcher ---- -->
                 <div class="project-card">
                     <h3>Undergraduate Researcher</h3>
-                    <p>
-                        <strong>Institute for Information Sciences (I2S), University of Kansas</strong><br>
-                        Jan 2023 to May 2025
-                    </p>
+                    <p><strong>I2S, University of Kansas</strong> — Jan 2023 to May 2025</p>
 
-                    <p>
-                        Designed and developed an interactive <strong>MRI viewer application</strong> using Dash and Plotly
-                        to visualize, navigate, and analyze 3D MRI volumes, including region-of-interest overlays
-                        to support biomedical imaging tasks.
-                    </p>
+                    <div class="tags">
+                        <span class="tag">Dash & Plotly</span>
+                        <span class="tag">MRI Visualization</span>
+                        <span class="tag">U-Net</span>
+                        <span class="tag">Biomedical ML</span>
+                    </div>
 
-                    <p>
-                        Applied deep learning techniques to biomedical data, including <strong>
-                            semantic segmentation of
-                            heart MRIs using U-Net
-                        </strong>, extracting features for downstream analysis and computational
-                        modeling.
-                    </p>
-
-                    <p>
-                        Presented research papers, contributed to discussions, and participated in professional
-                        development activities during weekly I2S research group meetings.
-                    </p>
+                    <ul class="card-list">
+                        <li>Developed an interactive MRI viewer app to analyze 3D MRI volumes.</li>
+                        <li>Performed semantic segmentation of heart MRIs using U-Net.</li>
+                        <li>Prepared datasets, preprocessing pipelines, and ROI overlays.</li>
+                        <li>Contributed to weekly research discussions and presentations.</li>
+                    </ul>
                 </div>
 
+                <!-- ---- MATH 796 ---- -->
                 <div class="project-card">
                     <h3>Advanced Coursework: MATH 796</h3>
-                    <p><strong>Optimization & Machine Learning (Graduate Course)</strong></p>
+                    <p><strong>Optimization & Machine Learning</strong></p>
 
-                    <p>
-                        Exploring robust machine learning and optimization methods with emphasis on optimization
-                        dynamics, stability, generalization, and theory-to-practice alignment.
-                    </p>
-                    <p>
-                        Working on <strong>CardioSegNet — Phase 2</strong> as the final course project, focusing on
-                        advanced optimization techniques, architectural improvements, and model robustness for
-                        biomedical image segmentation.
-                    </p>
-                    <p>
-                        Conducted mathematical analysis of optimization algorithms, including gradient methods,
-                        adaptive learning rules, convergence guarantees, and practical stability considerations.
-                    </p>
+                    <div class="tags">
+                        <span class="tag">Optimization</span>
+                        <span class="tag">Robust ML</span>
+                        <span class="tag">Deep Learning Theory</span>
+                    </div>
+
+                    <ul class="card-list">
+                        <li>Studying optimization dynamics, stability, and generalization.</li>
+                        <li>Developing <strong>CardioSegNet — Phase 2</strong> focusing on robustness.</li>
+                        <li>Analyzing gradient-based methods and adaptive learning rules.</li>
+                    </ul>
                 </div>
 
             </div>
         </section>
 
 
-        <!-- Research Mentors Section -->
+        <!-- -------------------- RESEARCH MENTORS -------------------- -->
         <section class="section">
             <h2>Research Mentors</h2>
 
@@ -366,189 +396,163 @@
                 <div class="project-card">
                     <h3>Dr. Suzanne M. Shontz</h3>
                     <p>
-                        Professor in Computer Science at the University of Kansas.
-                        Research areas include computational science, scientific computing,
-                        numerical optimization, mesh generation, and biomedical modeling.
+                        Professor of Computer Science at KU. Research in numerical optimization,
+                        computational science, mesh generation, and biomedical modeling.
                     </p>
-                    <p>
-                        🌐 <a href="https://people.eecs.ku.edu/~s906s230/">Faculty Website</a>
-                    </p>
+                    <p>🌐 <a href="https://people.eecs.ku.edu/~s906s230/">Faculty Website</a></p>
                 </div>
 
                 <div class="project-card">
                     <h3>Prof. Erik Van Vleck</h3>
                     <p>
-                        Professor of Mathematics at the University of Kansas.
-                        Specializes in numerical analysis, dynamical systems, matrix computations,
-                        optimization, and stability theory.
+                        Professor of Mathematics at KU. Specializes in numerical analysis,
+                        dynamical systems, and optimization theory.
                     </p>
-                    <p>
-                        🌐 <a href="https://mathematics.ku.edu/people/erik-van-vleck">Faculty Website</a>
-                    </p>
+                    <p>🌐 <a href="https://mathematics.ku.edu/people/erik-van-vleck">Faculty Website</a></p>
                 </div>
 
             </div>
         </section>
 
-        <!-- Work Experience Section -->
+
+        <!-- -------------------- WORK EXPERIENCE (UPDATED WITH TAGS + BULLETS) -------------------- -->
         <section class="section">
             <h2>Work Experience</h2>
 
             <div class="projects-grid">
 
+                <!-- ---- Software Engineering Intern ---- -->
                 <div class="project-card">
                     <h3>Software Engineering Intern</h3>
                     <p><strong>MP Software LLC</strong> — Jun 2025 to Aug 2025</p>
-                    <p>
-                        Contributed to <strong>SyncroAI</strong>, the company’s long-term AI initiative, by drafting a
-                        multi-phase strategic roadmap and identifying integration opportunities across pricing,
-                        inventory, and reporting systems. Actively collaborated with leadership to align technical
-                        priorities with business objectives.
-                    </p>
-                    <p>
-                        Led the development of SyncroStore’s first AI-powered analytics feature—a
-                        <strong>customer segmentation system</strong> using K-Means clustering.
-                    </p>
-                    <p>
-                        Worked on full-stack ASP.NET Web Forms development, resolving customer-reported bugs and
-                        designing usability-focused features to improve operational efficiency.
-                    </p>
-                    <p>
-                        Managed database integration tasks including writing stored procedures, optimizing SQL
-                        queries, and updating schemas.
-                    </p>
-                    <p>
-                        Drafted weekly technical blog posts that translated engineering progress into accessible
-                        content for non-technical audiences, covering AI use cases, SyncroStore feature highlights,
-                        and trends in retail technology.
-                    </p>
+
+                    <div class="tags">
+                        <span class="tag">K-Means</span>
+                        <span class="tag">ASP.NET</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">AI Strategy</span>
+                        <span class="tag">Full-Stack</span>
+                    </div>
+
+                    <ul class="card-list">
+                        <li>Drafted technical roadmap for SyncroAI and identified integration opportunities.</li>
+                        <li>Built SyncroStore’s first ML-based customer segmentation feature.</li>
+                        <li>Fixed bugs and implemented new features in ASP.NET Web Forms.</li>
+                        <li>Optimized SQL stored procedures and maintained database schemas.</li>
+                        <li>Wrote weekly AI-focused technical blog posts for broad audiences.</li>
+                    </ul>
                 </div>
 
+                <!-- ---- Desk Assistant ---- -->
                 <div class="project-card">
                     <h3>Desk Assistant / Night Desk Assistant</h3>
-                    <p><strong>KU Student Housing</strong> — Jan 2023 to May 2025</p>
-                    <p>
-                        Maintained clear and professional communication with desk assistants and resident assistants,
-                        fostering collaboration and reliability within the team.
-                    </p>
-                    <p>
-                        Demonstrated sound judgment and adaptability during night shifts by effectively managing
-                        unexpected situations—including student emergencies, lockouts, and policy violations.
-                    </p>
-                    <p>
-                        Assisted with move-in and move-out operations, ensuring a smooth process for residents
-                        and their families.
-                    </p>
-                    <p>
-                        Regularly communicated updates to complex directors and RAs, helping support student
-                        safety and well-being across residential communities.
-                    </p>
+                    <p><strong>Kansas Student Housing</strong> — Jan 2023 to May 2025</p>
+
+                    <div class="tags">
+                        <span class="tag">Communication</span>
+                        <span class="tag">Crisis Response</span>
+                        <span class="tag">Teamwork</span>
+                        <span class="tag">Student Support</span>
+                    </div>
+
+                    <ul class="card-list">
+                        <li>Coordinated with desk staff and RAs to maintain building operations.</li>
+                        <li>Managed emergencies, lockouts, and violations during night shifts.</li>
+                        <li>Assisted residents during move-in and move-out periods.</li>
+                        <li>Reported incidents and relayed updates to directors.</li>
+                    </ul>
                 </div>
 
+                <!-- ---- Sports Performance Assistant ---- -->
                 <div class="project-card">
                     <h3>Sports Performance Data Collection Assistant</h3>
                     <p><strong>Pittsburg State University Women’s Soccer Team</strong> — August 2025</p>
 
-                    <p>
-                        Assisted with pre-season athletic performance testing under the supervision of
-                        <a href="https://hses.ku.edu/people/minh-nguyen">Minh Nguyen</a>, ensuring the reliability
-                        of the full data acquisition pipeline during high-intensity field sessions.
-                    </p>
+                    <div class="tags">
+                        <span class="tag">Force Plates</span>
+                        <span class="tag">Sprint Timing</span>
+                        <span class="tag">Data Reliability</span>
+                        <span class="tag">Applied Biomechanics</span>
+                    </div>
 
-                    <p>
-                        Oversaw the integration and calibration of research-grade equipment—including
-                        <strong>force plates</strong>, <strong>10–30 sprint timing systems</strong>, and additional performance
-                        measurement technologies—to guarantee accurate, consistent data capture.
-                    </p>
-
-                    <p>
-                        Collaborated with applied sports scientists and coaching staff to troubleshoot
-                        real-time issues, maintain testing flow, and verify measurement consistency.
-                        This hands-on experience strengthened my interest in building ML systems that
-                        remain reliable and stable under real-world conditions.
-                    </p>
+                    <ul class="card-list">
+                        <li>Supported pre-season athletic performance testing sessions.</li>
+                        <li>Calibrated force plates and 10–30 sprint timing systems.</li>
+                        <li>Troubleshot data collection issues in real time.</li>
+                        <li>Ensured consistent acquisition pipelines under field conditions.</li>
+                    </ul>
                 </div>
 
+                <!-- ---- Judo Instructor ---- -->
                 <div class="project-card">
                     <h3>Judo Instructor & Assistant Coach</h3>
                     <p><strong>Tunis, Tunisia & Lawrence, Kansas</strong> — 2016 to Spring 2024</p>
 
-                    <p>
-                        Taught judo to children and youth under the supervision of
-                        <strong>Sensai Abdelrazak Turki</strong>, former <em>Directeur Sportif</em> of the Tunisian
-                        National Judo Team and head coach of UFE Judo Club Tunis, under whom I earned
-                        my black belt.
-                    </p>
+                    <div class="tags">
+                        <span class="tag">Teaching</span>
+                        <span class="tag">Movement Analysis</span>
+                        <span class="tag">Coaching</span>
+                        <span class="tag">Leadership</span>
+                    </div>
 
-                    <p>
-                        Developed strong communication and leadership skills by breaking down complex
-                        movement patterns, demonstrating technique, and guiding students through long-term
-                        skill development and physical discipline.
-                    </p>
-
-                    <p>
-                        Later continued teaching at the <strong>Lawrence Fencing Club (LFC)</strong>, leading weekly
-                        judo classes for one year and mentoring students of diverse backgrounds.
-                    </p>
-
-                    <p>
-                        This teaching experience reinforced my ability to convey technical ideas clearly,
-                        coach learners at different skill levels, and analyze human movement—all of which
-                        support my broader interest in building ML systems for biomechanics, rehabilitation,
-                        and robust human-centered AI.
-                    </p>
+                    <ul class="card-list">
+                        <li>Taught judo under Sensai Abdelrazak Turki—former Directeur Sportif of Tunisia's national team.</li>
+                        <li>Guided students through technical development and physical discipline.</li>
+                        <li>Coached at the Lawrence Fencing Club (LFC) for one year.</li>
+                        <li>Gained a practical understanding of biomechanics relevant to AI + human movement.</li>
+                    </ul>
                 </div>
-
-
 
             </div>
         </section>
 
 
-        <!-- Achievements Section -->
+        <!-- -------------------- PERSONAL CREATIVE PROJECTS -------------------- -->
+        <section class="section">
+            <h2>Personal Creative Projects</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h3>The Malek Kchaou Experience Podcast</h3>
+                    <p><strong>Oct 2022 – Oct 2023</strong></p>
+                    <p>A personal podcast inspired by long-form conversation formats.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- -------------------- ACHIEVEMENTS -------------------- -->
         <section class="section">
             <h2>Achievements</h2>
 
             <div class="projects-grid">
 
                 <div class="project-card">
-
-                    <div class="project-card">
-                        <h3>UPE Honors Society</h3>
-                        <p>
-                            Member of <strong>Upsilon Pi Epsilon (UPE)</strong>, the international honor society for
-                            computing and information disciplines, recognizing academic excellence in computer science.
-                        </p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Black Babcock Scholarship</h3>
-                        <p>
-                            Awarded the competitive <strong>Black Babcock Scholarship</strong> ($300) for academic
-                            excellence and strong performance in mathematics and applied computing.
-                        </p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>May Landis Mathematics Scholarship</h3>
-                        <p>
-                            Recipient of the <strong>May Landis Math Scholarship</strong>, recognizing high achievement
-                            and potential in advanced undergraduate mathematics.
-                        </p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Dean’s Honor Roll</h3>
-                        <p>
-                            Recognized multiple times on the <strong>Dean’s Honor Roll</strong> for both the
-                            School of Engineering and the College of Liberal Arts & Sciences (CLAS),
-                            awarded for outstanding academic performance.
-                        </p>
-                    </div>
+                    <h3>UPE Honors Society</h3>
+                    <p>Member of the Upsilon Pi Epsilon honor society.</p>
                 </div>
+
+                <div class="project-card">
+                    <h3>Black Babcock Scholarship</h3>
+                    <p>Awarded for academic excellence in mathematics and computing.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>May Landis Mathematics Scholarship</h3>
+                    <p>Recognized for achievement and potential in advanced mathematics.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Dean’s Honor Roll</h3>
+                    <p>Repeated recognition by both Engineering and CLAS divisions.</p>
+                </div>
+
+            </div>
         </section>
 
-        <!-- Contact -->
+
+        <!-- -------------------- CONTACT -------------------- -->
         <section class="section">
             <h2>Contact</h2>
             <p>
@@ -566,4 +570,5 @@
 
 </body>
 </html>
+
 
