@@ -259,19 +259,22 @@
         }
 
         .video-container {
-            flex: 1;
+            flex: 0 0 300px; /* fixed width for video window */
+            height: 180px; /* fixed height for video window */
             border-radius: 12px;
-            overflow: hidden;
-            max-height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden; /* ⭐ forces cropping */
+            position: relative;
+            background: black;
         }
 
             .video-container video {
-                width: 100%;
-                height: 100%;
-                object-fit: contain; 
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: auto;
+                height: 200%; /* ⭐ zoom the video so it crops nicely */
+                transform: translate(-50%, -50%);
+                object-fit: cover; /* ⭐ mandatory for cropping effect */
             }
 
 
