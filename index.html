@@ -228,6 +228,7 @@
                 opacity: 0.9;
             }
 
+        /* Carousel Styles */
         .carousel-wrapper {
             position: relative;
             background: white;
@@ -244,6 +245,7 @@
 
         .carousel-slide {
             min-width: 100%;
+            flex-shrink: 0;
             padding: 60px;
             display: flex;
             gap: 60px;
@@ -304,6 +306,7 @@
         .project-actions {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -316,12 +319,17 @@
             transition: all 0.3s ease;
             background: #0366d6;
             color: white;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 150px;
         }
 
             .btn:hover {
                 background: #0256b8;
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(3,102,214,0.3);
+                text-decoration: none;
             }
 
         .btn-secondary {
@@ -332,6 +340,7 @@
             .btn-secondary:hover {
                 background: #e5e7eb;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                color: #374151;
             }
 
         .dropdown-wrapper {
@@ -351,10 +360,13 @@
             background: #0366d6;
             color: white;
             position: relative;
+            min-width: 150px;
         }
 
             .dropdown-btn:hover {
                 background: #0256b8;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(3,102,214,0.3);
             }
 
             .dropdown-btn::after {
@@ -475,6 +487,69 @@
                 border-radius: 6px;
             }
 
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+            .video-modal.show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+            .close-modal:hover {
+                color: #0366d6;
+            }
+
         @media (max-width: 968px) {
             .carousel-slide {
                 flex-direction: column;
@@ -491,6 +566,7 @@
 
             .project-actions {
                 flex-direction: column;
+                width: 100%;
             }
 
             .dropdown-wrapper {
@@ -499,6 +575,11 @@
 
             .dropdown-btn, .btn {
                 width: 100%;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 10px;
             }
         }
     </style>
@@ -558,7 +639,49 @@
             }, 5000);
         });
 
-        // Dropdown functionality
+        // Video Modal functionality
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const closeModal = document.getElementById('closeModal');
+
+        function openVideoModal(videoSrc) {
+            modalVideo.src = videoSrc;
+            videoModal.classList.add('show');
+            modalVideo.play();
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('show');
+            modalVideo.pause();
+            modalVideo.src = '';
+        }
+
+        // Close modal on X button click
+        closeModal.addEventListener('click', closeVideoModal);
+
+        // Close modal on outside click
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('show')) {
+                closeVideoModal();
+            }
+        });
+
+        // Single "Watch Demo" buttons (CardioSegNet)
+        document.querySelectorAll('.btn[data-video]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const videoSrc = this.getAttribute('data-video');
+                openVideoModal(videoSrc);
+            });
+        });
+
+        // Dropdown functionality (OptimizerArena)
         const dropdownBtn = document.getElementById('watchDemoBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
 
@@ -581,21 +704,9 @@
             document.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const videoNumber = item.dataset.video;
+                    const videoSrc = item.getAttribute('data-video');
 
-                    // Find the video element in the OptimizerArena slide (2nd slide)
-                    const videoElement = document.querySelector('.carousel-slide:nth-child(2) video');
-
-                    // Define your video file paths
-                    const videoFiles = {
-                        '1': 'assets/OptimizerArenaDemo1.mp4',
-                        '2': 'assets/OptimizerArenaDemo2.mp4'
-                    };
-
-                    // Switch the video source
-                    videoElement.src = videoFiles[videoNumber];
-                    videoElement.load();
-                    videoElement.play();
+                    openVideoModal(videoSrc);
 
                     dropdownBtn.classList.remove('open');
                     dropdownMenu.classList.remove('show');
@@ -629,9 +740,9 @@
                 <div class="about-text">
                     <h3>Where I'm From</h3>
                     <p>
-                        I was born and raised on the Mediterranean coast of Tunisia—a country shaped by ancient civilizations, scientific heritage, and a deep cultural respect for learning. 
-                        Academics were central in my life from an early age. After ranking among the top students nationally in both the elementary and middle school national exams, I earned 
-                        admission into two of the most selective public institutions in the country: the Collège Pilote les Berges du Lac 2 and the Pioneer School of Ariana (LPA), where I completed the mathematics track. 
+                        I was born and raised on the Mediterranean coast of Tunisia—a country shaped by ancient civilizations, scientific heritage, and a deep cultural respect for learning.
+                        Academics were central in my life from an early age. After ranking among the top students nationally in both the elementary and middle school national exams, I earned
+                        admission into two of the most selective public institutions in the country: the Collège Pilote les Berges du Lac 2 and the Pioneer School of Ariana (LPA), where I completed the mathematics track.
                         These formative years instilled in me a strong analytical foundation, intellectual curiosity, and a commitment to excellence.
                     </p>
                 </div>
@@ -646,8 +757,8 @@
                 <div class="about-text">
                     <h3>Sports & Personal Interests</h3>
                     <p>
-                        Athletics have always played a central role in my life, especially judo—a martial art I have practiced since I was seven years old. 
-                        Training instilled in me discipline, resilience, and an appreciation for technical precision—qualities that directly influence my personal life, 
+                        Athletics have always played a central role in my life, especially judo—a martial art I have practiced since I was seven years old.
+                        Training instilled in me discipline, resilience, and an appreciation for technical precision—qualities that directly influence my personal life,
                         academic journey, and my work in machine learning and computational modeling. I am also deeply interested in ancient history, particularly the legacy of Carthage.
                     </p>
                 </div>
@@ -655,46 +766,46 @@
                     <img src="assets\1000004738.jpg" class="about-img" alt="Judo training">
                     <p class="img-caption">Group photo taken at the end of the Cédric Taymans International Judo Training Camp in Jodoigne, Belgium</p>
                 </div>
- 
+
             </div>
 
             <!-- Block 3: Text - Image (or centered text) -->
             <div class="about-block">
                 <div class="about-text">
                     <h3>Research Interests & Aspirations</h3>
-                        <p>
-                            I work at the intersection of <strong>robust machine learning</strong> and <strong>optimization</strong>,
-                            with a focus on understanding how learning systems behave in real-world, high-stakes settings.
-                            My goal is to help bridge the gap between <strong>ML theory</strong> and practical deployment in
-                            domains where reliability matters.
-                        </p>
+                    <p>
+                        I work at the intersection of <strong>robust machine learning</strong> and <strong>optimization</strong>,
+                        with a focus on understanding how learning systems behave in real-world, high-stakes settings.
+                        My goal is to help bridge the gap between <strong>ML theory</strong> and practical deployment in
+                        domains where reliability matters.
+                    </p>
 
-                        <p>
-                            As such, my <strong>research agenda</strong> focuses on the mathematical and algorithmic foundations of
-                            machine learning, with emphasis on the following themes:
+                    <p>
+                        As such, my <strong>research agenda</strong> focuses on the mathematical and algorithmic foundations of
+                        machine learning, with emphasis on the following themes:
 
-                            <ul>
-                                <li>
-                                    <strong>Optimization-Aware Understanding of Neural Network Dynamics:</strong>
-                                    Developing theoretical and computational tools to study learning trajectories, stability,
-                                    curvature, and convergence behavior in high-dimensional nonconvex systems.
-                                </li>
+                        <ul>
+                            <li>
+                                <strong>Optimization-Aware Understanding of Neural Network Dynamics:</strong>
+                                Developing theoretical and computational tools to study learning trajectories, stability,
+                                curvature, and convergence behavior in high-dimensional nonconvex systems.
+                            </li>
 
-                                <li>
-                                    <strong>Robust and Deployable Machine Learning for High-Stakes Domains:</strong>
-                                    Designing learning systems that maintain reliability under noise, distribution shift, and
-                                    real-world variability, with applications to human health, rehabilitation technology, and
-                                    distributed robotic systems.
-                                </li>
+                            <li>
+                                <strong>Robust and Deployable Machine Learning for High-Stakes Domains:</strong>
+                                Designing learning systems that maintain reliability under noise, distribution shift, and
+                                real-world variability, with applications to human health, rehabilitation technology, and
+                                distributed robotic systems.
+                            </li>
 
-                                <li>
-                                    <strong>Advancing AutoML and Architecture Search:</strong>
-                                    Improving automated techniques for neural architecture design, hyperparameter exploration,
-                                    and model evaluation using insights from optimization dynamics, generalization theory, and
-                                    empirical training behavior.
-                                </li>
-                            </ul>
-                        </p>
+                            <li>
+                                <strong>Advancing AutoML and Architecture Search:</strong>
+                                Improving automated techniques for neural architecture design, hyperparameter exploration,
+                                and model evaluation using insights from optimization dynamics, generalization theory, and
+                                empirical training behavior.
+                            </li>
+                        </ul>
+                    </p>
                 </div>
             </div>
         </section>
@@ -735,7 +846,8 @@
                                 </div>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/MK720-dev/CardioSegNet" class="btn" style="text-decoration: none;">View Repository</a>
+                                <button class="btn" data-video="assets/CardioSegNet1.0_demo.mp4">Watch Demo</button>
+                                <a href="https://github.com/MK720-dev/CardioSegNet" class="btn btn-secondary">View Repository</a>
                             </div>
                         </div>
                     </div>
@@ -744,7 +856,7 @@
                     <div class="carousel-slide">
                         <div class="video-container">
                             <video autoplay muted loop>
-                                <source src="assets/OptimizerArenaDemo.mp4" type="video/mp4">
+                                <source src="assets/OptimizerArenaDemo1.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="project-info">
@@ -770,11 +882,11 @@
                                         Watch Demo
                                     </button>
                                     <div class="dropdown-menu" id="dropdownMenu">
-                                        <div class="dropdown-item" data-video="1">Video 1</div>
-                                        <div class="dropdown-item" data-video="2">Video 2</div>
+                                        <div class="dropdown-item" data-video="assets/OptimizerArenaDemo1.mp4">Video 1</div>
+                                        <div class="dropdown-item" data-video="assets/OptimizerArenaDemo2.mp4">Video 2</div>
                                     </div>
                                 </div>
-                                <a href="https://github.com/MK720-dev/OptimizerArena" class="btn btn-secondary" style="text-decoration: none;">View Repository</a>
+                                <a href="https://github.com/MK720-dev/OptimizerArena" class="btn btn-secondary">View Repository</a>
                             </div>
                         </div>
                     </div>
@@ -783,7 +895,7 @@
                     <div class="carousel-slide">
                         <div class="video-container">
                             <video autoplay muted loop>
-                                <!-- Add your ML Lab video here when you have it -->
+                                <!-- Placeholder - replace with your video when available -->
                                 <source src="assets/MLLab_demo.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -806,7 +918,7 @@
                                 </div>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/MK720-dev/The-ML-Lab" class="btn" style="text-decoration: none;">View Repository</a>
+                                <a href="https://github.com/MK720-dev/The-ML-Lab" class="btn">View Repository</a>
                             </div>
                         </div>
                     </div>
@@ -818,6 +930,16 @@
                 </div>
             </div>
         </section>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeModal">&times;</button>
+                <video id="modalVideo" class="modal-video" controls autoplay>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
 
 
         <!-- -------------------- COLLABORATIVE PROJECTS -------------------- -->
