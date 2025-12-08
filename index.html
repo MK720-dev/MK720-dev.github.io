@@ -228,8 +228,382 @@
                 opacity: 0.9;
             }
 
+        .carousel-wrapper {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
 
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 60px;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .video-container {
+            flex: 1;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+            .video-container video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: #0366d6;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6b7280;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #0366d6;
+            color: white;
+        }
+
+            .btn:hover {
+                background: #0256b8;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(3,102,214,0.3);
+            }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+            .btn-secondary:hover {
+                background: #e5e7eb;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+        .dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            padding: 12px 24px;
+            padding-right: 40px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #0366d6;
+            color: white;
+            position: relative;
+        }
+
+            .dropdown-btn:hover {
+                background: #0256b8;
+            }
+
+            .dropdown-btn::after {
+                content: '▼';
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 0.75rem;
+                transition: transform 0.3s ease;
+            }
+
+            .dropdown-btn.open::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+            .dropdown-menu.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            color: #374151;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .dropdown-item:first-child {
+                border-radius: 8px 8px 0 0;
+            }
+
+            .dropdown-item:last-child {
+                border-radius: 0 0 8px 8px;
+            }
+
+            .dropdown-item:hover {
+                background: #f3f4f6;
+            }
+
+            .dropdown-item::before {
+                content: '▶';
+                font-size: 0.75rem;
+                color: #0366d6;
+            }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+            .carousel-btn:hover {
+                background: #0366d6;
+                color: white;
+                transform: scale(1.1);
+            }
+
+        .carousel-indicators {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .indicator.active {
+                background: white;
+                width: 32px;
+                border-radius: 6px;
+            }
+
+        @media (max-width: 968px) {
+            .carousel-slide {
+                flex-direction: column;
+                padding: 40px 30px;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-description {
+                font-size: 1.1rem;
+            }
+
+            .project-actions {
+                flex-direction: column;
+            }
+
+            .dropdown-wrapper {
+                width: 100%;
+            }
+
+            .dropdown-btn, .btn {
+                width: 100%;
+            }
+        }
     </style>
+
+    <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-advance carousel
+        let autoAdvance = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+
+        // Pause auto-advance on hover
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvance);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoAdvance = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 5000);
+        });
+
+        // Dropdown functionality
+        const dropdownBtn = document.getElementById('watchDemoBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        if (dropdownBtn && dropdownMenu) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownBtn.classList.toggle('open');
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown-wrapper')) {
+                    dropdownBtn.classList.remove('open');
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+
+            // Handle dropdown item clicks
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const videoNumber = item.dataset.video;
+
+                    // Find the video element in the OptimizerArena slide (2nd slide)
+                    const videoElement = document.querySelector('.carousel-slide:nth-child(2) video');
+
+                    // Define your video file paths
+                    const videoFiles = {
+                        '1': 'assets/OptimizerArenaDemo1.mp4',
+                        '2': 'assets/OptimizerArenaDemo2.mp4'
+                    };
+
+                    // Switch the video source
+                    videoElement.src = videoFiles[videoNumber];
+                    videoElement.load();
+                    videoElement.play();
+
+                    dropdownBtn.classList.remove('open');
+                    dropdownMenu.classList.remove('show');
+                });
+            });
+        }
+    });
+    </script>
 </head>
 
 <body>
@@ -325,58 +699,123 @@
             </div>
         </section>
         <section class="section">
-            <h2>Research Highlights</h2>
-
-            <!-- -------- CardioSegNet Banner -------- -->
-            <section class="video-banner">
-                <video autoplay muted loop class="banner-video">
-                    <source src="assets/CardioSegNet1.0_demo.mp4" type="video/mp4">
-                </video>
-                <div class="banner-text">
-                    <h2>CardioSegNet Phase 1 — Lightweight MRI Segmentation</h2>
-                    <p>A U-Net–based system for cardiac MRI slice segmentation, developed through iterative research in optimization and biomedical modeling.</p>
-                </div>
-            </section>
-
-            <!-- -------- OptimizerArena Banner 1 -------- -->
-            <section class="video-banner">
-                <video autoplay muted loop class="banner-video">
-                    <source src="assets/OptimizerArenaDemo.mp4" type="video/mp4">
-                </video>
-                <div class="banner-text">
-                    <h2>OptimizerArena — Loss Landscape Explorer</h2>
-                    <p>A platform for exploring high-dimensional neural loss landscapes using PCA-based surface reconstruction.</p>
-                </div>
-            </section>
-
-        </section>
-        <!-- -------------------- RECENT PROJECTS -------------------- -->
-        <section class="section">
             <h2>Recent Featured Projects</h2>
 
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <h3><a href="https://github.com/MK720-dev/CardioSegNet">CardioSegNet</a></h3>
-                    <p>
-                        Deep-learning pipeline for cardiac MRI segmentation using a U-Net architecture.
-                    </p>
+            <div class="carousel-wrapper">
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-slide="0"></div>
+                    <div class="indicator" data-slide="1"></div>
+                    <div class="indicator" data-slide="2"></div>
                 </div>
 
-                <div class="project-card">
-                    <h3><a href="https://github.com/MK720-dev/OptimizerArena">OptimizerArena</a></h3>
-                    <p>
-                        Interactive platform for visualizing loss landscapes and optimization trajectories.
-                    </p>
+                <div class="carousel-container" id="carousel">
+                    <!-- Slide 1: CardioSegNet -->
+                    <div class="carousel-slide">
+                        <div class="video-container">
+                            <video autoplay muted loop>
+                                <source src="assets/CardioSegNet1.0_demo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h2 class="project-title">CardioSegNet</h2>
+                            <p class="project-description">
+                                Deep-learning pipeline for cardiac MRI segmentation using a U-Net architecture.
+                                This project leverages state-of-the-art computer vision techniques to automatically
+                                identify and segment cardiac structures from MRI scans, improving diagnostic accuracy
+                                and reducing analysis time.
+                            </p>
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Technology:</span>
+                                    <span>Python, Keras, U-Net, Medical Segmentation</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span>Phase 2 In Progress</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/MK720-dev/CardioSegNet" class="btn" style="text-decoration: none;">View Repository</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: OptimizerArena -->
+                    <div class="carousel-slide">
+                        <div class="video-container">
+                            <video autoplay muted loop>
+                                <source src="assets/OptimizerArenaDemo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h2 class="project-title">OptimizerArena</h2>
+                            <p class="project-description">
+                                Interactive platform for visualizing loss landscapes and optimization trajectories.
+                                Compare different optimizers in real-time, explore how they navigate complex loss
+                                surfaces, and gain intuition about optimization dynamics in machine learning.
+                            </p>
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Technology:</span>
+                                    <span>React, Vite, Plotly.js, Python, Numpy</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span>Live Demo Available</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <div class="dropdown-wrapper">
+                                    <button class="dropdown-btn" id="watchDemoBtn">
+                                        Watch Demo
+                                    </button>
+                                    <div class="dropdown-menu" id="dropdownMenu">
+                                        <div class="dropdown-item" data-video="1">Video 1</div>
+                                        <div class="dropdown-item" data-video="2">Video 2</div>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/MK720-dev/OptimizerArena" class="btn btn-secondary" style="text-decoration: none;">View Repository</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: The ML Lab -->
+                    <div class="carousel-slide">
+                        <div class="video-container">
+                            <video autoplay muted loop>
+                                <!-- Add your ML Lab video here when you have it -->
+                                <source src="assets/MLLab_demo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h2 class="project-title">The ML Lab</h2>
+                            <p class="project-description">
+                                A collection of machine learning experiments and exploratory projects.
+                                This repository serves as a playground for testing new architectures,
+                                experimenting with novel techniques, and documenting the learning journey
+                                through hands-on implementation.
+                            </p>
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Technology:</span>
+                                    <span>Python, Jupyter, Various ML Frameworks</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span>Active Development</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/MK720-dev/The-ML-Lab" class="btn" style="text-decoration: none;">View Repository</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="project-card">
-                    <h3><a href="https://github.com/MK720-dev/The-ML-Lab">The ML Lab</a></h3>
-                    <p>
-                        A collection of machine learning experiments and exploratory projects.
-                    </p>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">◀</button>
+                    <button class="carousel-btn" id="nextBtn">▶</button>
                 </div>
-
             </div>
         </section>
 
