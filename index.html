@@ -248,7 +248,7 @@
         .carousel-slide {
             min-width: 100%;
             flex-shrink: 0;
-            padding: 60px 40px 60px 40px;
+            padding: 20px 20px 20px 20px;
             display: flex;
             gap: 60px;
             align-items: center;
@@ -838,16 +838,15 @@
                         <div class="project-info">
                             <h2 class="project-title">CardioSegNet</h2>
                             <p class="project-description">
-                                This project implements a deep-learning pipeline for cardiac MRI segmentation built around a baseline U-Net. The model employs a two-level encoder–decoder design with batch-normalized convolutional blocks and skip connections to automatically identify and segment the left ventricle from 2D MRI slices, improving diagnostic accuracy and reducing clinical analysis time. Training uses a hybrid Dice + Cross-Entropy loss to balance region overlap and pixel-wise classification.
-
-                                To support qualitative evaluation, the pipeline includes a custom visualization tool built with Python Dash and Plotly, enabling slice-by-slice navigation with overlaid ground-truth and predicted segmentation masks. The baseline model achieved a Dice score of 0.82, demonstrating solid overall performance, while the viewer revealed edge cases that highlight directions for improvement.
-
-                                Phase 2 is currently underway, aiming to extend the framework with deeper architectures and multi-structure cardiac segmentation.
+                                Deep-learning pipeline for cardiac MRI segmentation using a U-Net model.
+                                Built a two-level encoder–decoder architecture with batch-normalized convolution blocks and skip connections to segment the left ventricle from 2D MRI slices. 
+                                Trained using a hybrid Dice + Cross-Entropy loss, achieving a 0.82 Dice score. Developed an interactive Dash/Plotly viewer enabling slice navigation and overlay of prediction vs. ground truth. 
+                                Phase 2 will extend the model to deeper architectures and multi-structure cardiac segmentation.
                             </p>
                             <div class="project-details">
                                 <div class="detail-item">
                                     <span class="detail-label">Technology:</span>
-                                    <span>Python, Keras, U-Net, Medical Segmentation</span>
+                                    <span>Python, Dash, Plotly, Keras, U-Net, Medical Segmentation</span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
@@ -871,14 +870,14 @@
                         <div class="project-info">
                             <h2 class="project-title">OptimizerArena</h2>
                             <p class="project-description">
-                                Interactive platform for visualizing loss landscapes and optimization trajectories.
+                                Interactive platform for defining and training deep neural neywork architectures on a range of different tasks and visualizing the respective loss landscapes and optimization trajectories.
                                 Compare different optimizers in real-time, explore how they navigate complex loss
                                 surfaces, and gain intuition about optimization dynamics in machine learning.
                             </p>
                             <div class="project-details">
                                 <div class="detail-item">
                                     <span class="detail-label">Technology:</span>
-                                    <span>React, Vite, Plotly.js, Python, Numpy</span>
+                                    <span>Python, React, Vite, Plotly.js, NumPy</span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
@@ -911,15 +910,16 @@
                         <div class="project-info">
                             <h2 class="project-title">The ML Lab</h2>
                             <p class="project-description">
-                                A collection of machine learning experiments and exploratory projects.
-                                This repository serves as a playground for testing new architectures,
-                                experimenting with novel techniques, and documenting the learning journey
-                                through hands-on implementation.
+                                A collection of machine learning experiments and exploratory mini-projects.
+                                This repository serves as a playground for testing and experimenting with different techniques, architectures and approaches, spanning a 
+                                range of important topics such as supervised, unsupervised and reinforcement learning as well as topics like class imbalance, feature selction, dimensionalty reduction techniques and relevant statistical modesl.
+                                Its main purpose if documenting the learning journey and providing people with hands-on examples to learn from.
+                               
                             </p>
                             <div class="project-details">
                                 <div class="detail-item">
                                     <span class="detail-label">Technology:</span>
-                                    <span>Python, Jupyter, Various ML Frameworks</span>
+                                    <span>Python, Scikit-learn, Matplotlib, NumPy </span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
