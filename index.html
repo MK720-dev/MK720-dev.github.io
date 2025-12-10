@@ -248,7 +248,7 @@
         .carousel-slide {
             min-width: 100%;
             flex-shrink: 0;
-            padding: 60px 40px 60px 80px;
+            padding: 60px 40px 60px 40px;
             display: flex;
             gap: 60px;
             align-items: center;
@@ -838,10 +838,11 @@
                         <div class="project-info">
                             <h2 class="project-title">CardioSegNet</h2>
                             <p class="project-description">
-                                Deep-learning pipeline for cardiac MRI segmentation using a U-Net architecture.
-                                This project leverages state-of-the-art computer vision techniques to automatically
-                                identify and segment cardiac structures from MRI scans, improving diagnostic accuracy
-                                and reducing analysis time.
+                                This project implements a deep-learning pipeline for cardiac MRI segmentation built around a baseline U-Net. The model employs a two-level encoder–decoder design with batch-normalized convolutional blocks and skip connections to automatically identify and segment the left ventricle from 2D MRI slices, improving diagnostic accuracy and reducing clinical analysis time. Training uses a hybrid Dice + Cross-Entropy loss to balance region overlap and pixel-wise classification.
+
+                                To support qualitative evaluation, the pipeline includes a custom visualization tool built with Python Dash and Plotly, enabling slice-by-slice navigation with overlaid ground-truth and predicted segmentation masks. The baseline model achieved a Dice score of 0.82, demonstrating solid overall performance, while the viewer revealed edge cases that highlight directions for improvement.
+
+                                Phase 2 is currently underway, aiming to extend the framework with deeper architectures and multi-structure cardiac segmentation.
                             </p>
                             <div class="project-details">
                                 <div class="detail-item">
