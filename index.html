@@ -825,10 +825,46 @@
                     <div class="indicator active" data-slide="0"></div>
                     <div class="indicator" data-slide="1"></div>
                     <div class="indicator" data-slide="2"></div>
+                    <div class="indicator" data-slide="3"></div>
                 </div>
 
                 <div class="carousel-container" id="carousel">
-                    <!-- Slide 1: CardioSegNet -->
+                    <!-- Slide 1: CardioSegNet (Phase 2) -->
+                    <div class="carousel-slide">
+                        <div class="video-container">
+                            <video autoplay muted loop>
+                                <source src="assets/CardioSegNet2.0_demo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <h2 class="project-title">CardioSegNet (Phase 2)</h2>
+                            <p class="project-description">
+                                Deep-learning pipeline for multi-class cardiac MRI segmentation using an enhanced U-Net architecture. 
+                                Extended the baseline model to a four-level encoder–decoder network operating on full-resolution 256×256 slices, 
+                                enabling simultaneous segmentation of the left ventricle, right ventricle, and myocardium. 
+                                Incorporated batch-normalized convolutional blocks, symmetric skip connections, and a region-aware hybrid loss 
+                                combining Sparse Categorical Cross-Entropy and multi-class Dice, improving class balance and anatomical overlap. 
+                                Achieved a peak validation Dice score of 0.91 with early convergence and stable training dynamics. 
+                                Integrated the model into an interactive Dash/Plotly visualization system, supporting per-slice navigation, 
+                                class-specific overlays, and direct qualitative comparison between baseline and advanced models.
+                            </p>
+                            <div class="project-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Technology:</span>
+                                    <span>Python, Dash, Plotly, Keras, U-Net, Multi-class semantic Segmentation</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span>Demo Available</span>
+                                </div>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn" data-video="assets/CardioSegNet2.0_demo.mp4">Watch Demo</button>
+                                <a href="https://github.com/MK720-dev/CardioSegNet" class="btn btn-secondary">View Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2: CardioSegNet (Phase 1) -->
                     <div class="carousel-slide">
                         <div class="video-container">
                             <video autoplay muted loop>
@@ -836,11 +872,11 @@
                             </video>
                         </div>
                         <div class="project-info">
-                            <h2 class="project-title">CardioSegNet</h2>
+                            <h2 class="project-title">CardioSegNet (Phase 1)</h2>
                             <p class="project-description">
                                 Deep-learning pipeline for cardiac MRI segmentation using a U-Net model.
-                                Built a two-level encoder–decoder architecture with batch-normalized convolution blocks and skip connections to segment the left ventricle from 2D MRI slices. 
-                                Trained using a hybrid Dice + Cross-Entropy loss, achieving a 0.82 Dice score. Developed an interactive Dash/Plotly viewer enabling slice navigation and overlay of prediction vs. ground truth. 
+                                Built a two-level encoder–decoder architecture with batch-normalized convolution blocks and skip connections to segment the left ventricle from 2D MRI slices.
+                                Trained using a hybrid Dice + Cross-Entropy loss, achieving a 0.82 Dice score. Developed an interactive Dash/Plotly viewer enabling slice navigation and overlay of prediction vs. ground truth.
                                 Phase 2 will extend the model to deeper architectures and multi-structure cardiac segmentation.
                             </p>
                             <div class="project-details">
@@ -850,7 +886,7 @@
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
-                                    <span>Phase 2 In Progress</span>
+                                    <span>Demo Available</span>
                                 </div>
                             </div>
                             <div class="project-actions">
@@ -860,7 +896,7 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2: OptimizerArena -->
+                    <!-- Slide 3: OptimizerArena -->
                     <div class="carousel-slide">
                         <div class="video-container">
                             <video autoplay muted loop>
@@ -881,7 +917,7 @@
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
-                                    <span>Live Demo Available</span>
+                                    <span>Demo Available</span>
                                 </div>
                             </div>
                             <div class="project-actions">
@@ -899,7 +935,7 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3: The ML Lab -->
+                    <!-- Slide 4: The ML Lab -->
                     <div class="carousel-slide">
                         <div class="video-container">
                             <video autoplay muted loop>
@@ -910,7 +946,7 @@
                         <div class="project-info">
                             <h2 class="project-title">The ML Lab</h2>
                             <p class="project-description">
-                                A collection of machine learning experiments and exploratory mini-projects. This repository serves as a playground for testing a variety of techniques, architectures, and approaches across supervised, unsupervised, and reinforcement learning. 
+                                A collection of machine learning experiments and exploratory mini-projects. This repository serves as a playground for testing a variety of techniques, architectures, and approaches across supervised, unsupervised, and reinforcement learning.
                                 It also includes concepts like class imbalance, feature selection, dimensionality reduction, and key statistical models. Its main purpose is to document the learning journey and provide others with practical, hands-on examples.
                             </p>
                             <div class="project-details">
@@ -920,7 +956,7 @@
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Status:</span>
-                                    <span>Active Development</span>
+                                    <span>Done</span>
                                 </div>
                             </div>
                             <div class="project-actions">
