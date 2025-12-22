@@ -801,7 +801,7 @@
 
         <h1>Malek Kchaou</h1>
         <p>
-            Computer Science Senior @ University of Kansas • Machine Learning (Applied & Theory) • Optimization 
+            Computer Science Senior @ University of Kansas • Machine Learning (Theoretical & Applied) • Optimization 
         </p>
     </header>
 
@@ -881,6 +881,14 @@
                                 and model evaluation using insights from optimization dynamics, generalization theory, and
                                 empirical training behavior.
                             </li>
+
+                            <li>
+                                <strong>Machine Learning for High-Stakes Real-World Systems:</strong>
+                                Applying and adapting machine learning methods to domains such as healthcare, rehabilitation,
+                                robotics, and autonomous systems, where failures carry significant consequences and require
+                                careful treatment of uncertainty, robustness, and deployment constraints.
+                            </li>
+
                         </ul>
                     </p>
                 </div>
@@ -1107,23 +1115,45 @@
             <h2>Current Projects</h2>
 
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3><a href="https://github.com/Abdulaziz-Ali123/LocalNotes">LocalNotes (Capstone)</a></h3>
-                    <p>
-                        Secure AI-enhanced local Markdown-based note-taking application.
-                    </p>
-                </div>
-            </div>
 
-            <div class="projects-grid">
+                <!-- UGRA Project -->
                 <div class="project-card">
-                    <h3><a href="https://github.com/MK720-dev/CardioSegNet">CardioSegNet — Phase 2</a></h3>
+                    <h3>Optimization-Aware AutoML (UGRA)</h3>
                     <p>
-                        Phase 2 extension for graduate course MATH 796, focusing on advanced optimization.
+                        Mathematics Undergraduate Research Award–funded project exploring how neural architectures
+                        and optimization strategies can be co-designed for robust training. Uses reinforcement learning
+                        as an AutoML controller to jointly adapt architectures and optimizers based on convergence
+                        stability, performance, and robustness.
                     </p>
                 </div>
+
+                <!-- ForceHawk -->
+                <div class="project-card">
+                    <h3>ForceHawk — Sports Performance Analytics</h3>
+                    <p>
+                        Research project with the Jayhawk Athletic Performance Lab focused on building a modular,
+                        Python-based analytics platform for force–time data. Features a layered, plugin-based
+                        pipeline for biomechanical metrics and interactive visualization for researchers and coaches.
+                    </p>
+                </div>
+
+                <!-- LocalNotes -->
+                <div class="project-card">
+                    <h3>
+                        <a href="https://github.com/Abdulaziz-Ali123/LocalNotes">
+                            LocalNotes — Senior Capstone (EECS 581)
+                        </a>
+                    </h3>
+                    <p>
+                        Cross-platform, AI-ready note-taking application built with Nextron (Next.js + Electron).
+                        Implements file-system–aware Markdown editing, import/export pipelines (MD, TXT, PDF, DOCX),
+                        and a dynamic file explorer, with planned AI features for summarization and semantic search.
+                    </p>
+                </div>
+
             </div>
         </section>
+
 
 
         <!-- -------------------- OLDER PROJECTS -------------------- -->
@@ -1228,7 +1258,7 @@
                 <!-- ---- MATH 796 ---- -->
                 <div class="project-card">
                     <h3>MATH 796 — Optimization & Machine Learning</h3>
-                    <p><strong>Graduate Course Project Work</strong></p>
+                    <p><strong>Graduate Coursework & Research Project</strong></p>
 
                     <div class="tags">
                         <span class="tag">Optimization</span>
@@ -1236,78 +1266,47 @@
                         <span class="tag">PCA</span>
                         <span class="tag">FastAPI</span>
                         <span class="tag">React/Vite</span>
-                        <span class="tag">AdamW</span>
                         <span class="tag">U-Net</span>
+                        <span class="tag">AutoML</span>
                     </div>
 
                     <ul class="card-list">
 
-                        <!-- OptimizerArena -->
                         <li>
-                            Designed <strong>OptimizerArena</strong>, an interactive system for exploring high-dimensional
-                            neural-network loss landscapes using PCA-based dimensionality reduction and surrogate modeling.
+                            Studied foundational optimization theory through lectures, paper reviews, and mathematical
+                            analysis, including convergence properties of first-order methods, momentum-based variants,
+                            quasi-Newton approaches, adaptive learning-rate algorithms, and behavior in convex vs.
+                            non-convex landscapes.
                         </li>
 
                         <li>
-                            Implemented gradient-based and quasi-Newton algorithms (SGD, Mini-batch GD, Adam, RMSProp, BFGS)
-                            <strong>from first principles</strong> to analyze optimization dynamics.
+                            Analyzed neural-network architectures (CNNs, U-Nets) and hyperparameter choices
+                            (activation functions, batch normalization, regularization), examining how architectural
+                            decisions interact with optimizer performance and convergence dynamics.
                         </li>
 
                         <li>
-                            Integrated training-trajectory visualization and loss-surface reconstruction to study
-                            curvature, saddle points, and convergence behavior across tasks.
+                            Implemented classical and adaptive optimization algorithms (full-batch, mini-batch, and
+                            stochastic gradient descent, Adam, RMSProp, Adagrad, and BFGS) from first principles in NumPy,
+                            benchmarking them against Keras implementations on synthetic and real datasets.
                         </li>
 
                         <li>
-                            Built a full-stack implementation: a <strong>FastAPI backend</strong> for training/PCA computations
-                            and a <strong>React + Vite frontend</strong> for real-time 3D visualization.
+                            Designed and built <strong>OptimizerArena</strong>, a full-stack research platform
+                            (FastAPI backend, React/Vite frontend) for visualizing high-dimensional loss landscapes using
+                            PCA-based projections and surrogate modeling to study optimizer sensitivity to initialization,
+                            curvature, and dataset structure.
                         </li>
 
                         <li>
-                            Investigated optimizer sensitivity to initialization, curvature, and dataset structure
-                            using cross-validation and trajectory diagnostics.
-                        </li>
-
-                        <li>
-                            Developed an extensible experimentation framework supporting synthetic, regression,
-                            and classification datasets with user-defined architectures.
-                        </li>
-
-                        <!-- CardioSegNet Phase 2 -->
-                        <li>
-                            Extending CardioSegNet by developing a deeper and more robust U-Net architecture
-                            incorporating <strong>residual blocks</strong>, <strong>attention modules</strong>,
-                            and <strong>higher-resolution inputs</strong>.
-                        </li>
-
-                        <li>
-                            Studying advanced optimization strategies (AdamW, cosine decay, warm restarts)
-                            to reduce instability and improve convergence on medical image segmentation tasks.
-                        </li>
-
-                        <li>
-                            Experimenting with alternative activation functions (LeakyReLU, GELU, Swish/Mish)
-                            and regularization methods to improve robustness to noise and anatomical variability.
-                        </li>
-
-                        <li>
-                            Designing a flexible framework for multi-class segmentation (LV, RV, Myocardium)
-                            while maintaining LV-only training for controlled experimentation.
-                        </li>
-
-                        <li>
-                            Building infrastructure for a future <strong>AutoML agent</strong> that evaluates optimization
-                            dynamics and recommends architectural/hyperparameter improvements.
-                        </li>
-
-                        <li>
-                            Studying how depth, receptive field size, skip-connection structure, and
-                            attention mechanisms affect generalization, boundary sharpness, and apex/base consistency.
+                            Applied course concepts to extend <strong>CardioSegNet (Phase 2)</strong> by developing a
+                            deeper multi-class U-Net with a region-aware hybrid loss (sparse categorical cross-entropy +
+                            multi-class Dice), achieving a peak validation Dice score of <strong>0.91</strong> and laying
+                            groundwork for an optimization-aware AutoML framework.
                         </li>
 
                     </ul>
                 </div>
-
             </div>
         </section>
 
@@ -1490,8 +1489,6 @@
                         </li>
                     </ul>
                 </div>
-
-
 
                 <!-- ---- Judo Instructor ---- -->
                 <div class="scroll-card">
