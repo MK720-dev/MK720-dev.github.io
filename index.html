@@ -606,6 +606,43 @@
             }
         }
 
+        .announcements {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .announcement {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+            .announcement.primary {
+                background: #eef3ff;
+                color: #365dd6;
+                font-weight: 600;
+            }
+
+            .announcement.secondary {
+                background: #f8f9fb;
+                color: #374151;
+                border-top: 1px solid #eee;
+            }
+
+            .announcement a {
+                margin-left: 6px;
+                font-weight: 600;
+                color: inherit;
+                text-decoration: underline;
+            }
+
+                .announcement a:hover {
+                    text-decoration: none;
+                }
+
+
     </style>
 
     <script>
@@ -743,15 +780,31 @@
 
 <body>
 
+    <!-- Announcements section-->
+    <div class="announcements">
+        <div class="announcement primary">
+            🏆 <strong>UGRA Awarded (Spring 2026):</strong>
+            Optimization-aware AutoML project sponsored by Prof. Erik Van Vleck.
+            <a href="#current-projects">View project overview →</a>
+        </div>
+
+        <div class="announcement secondary">
+            📊 <strong>ForceHawk:</strong>
+            Ongoing research with the Jayhawk Athletic Performance Lab on modular sports-performance analytics.
+            <a href="#current-projects">See current work →</a>
+        </div>
+    </div>
+
     <!-- Header / Intro -->
     <header>
         <img src="assets/DSC_0443.jpg" alt="Profile Picture" class="profile" />
 
         <h1>Malek Kchaou</h1>
         <p>
-            Computer Science Senior @ University of Kansas • Machine Learning • Optimization • Biomedical Modeling
+            Computer Science Senior @ University of Kansas • Machine Learning (Applied & Theory) • Optimization 
         </p>
     </header>
+
 
     <div class="container">
 
@@ -962,7 +1015,7 @@
                                     View Repository
                                 </a>
 
-                                <a href="assets/OptimizerArena_Optimization_Report.pdf"
+                                <a href="assets/Malek_Kchaou_Writing_Sample.pdf"
                                    class="btn btn-report"
                                    target="_blank" rel="noopener">
                                     📄 Technical Report
@@ -1049,10 +1102,9 @@
             </div>
         </section>
 
-
         <!-- -------------------- CURRENT PROJECTS -------------------- -->
-        <section class="section">
-            <h2>Current Project</h2>
+        <section id="current-projects" class="section">
+            <h2>Current Projects</h2>
 
             <div class="projects-grid">
                 <div class="project-card">
